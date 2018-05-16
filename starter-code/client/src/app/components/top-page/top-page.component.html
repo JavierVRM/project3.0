@@ -1,0 +1,49 @@
+<div class="my__navbar my__flex nav__bg">
+  <div class="center__container my__flex__between">
+    <div class="right__navbar my__flex">
+      <!-- <img src="../../../assets/images/logo.png" alt=""> -->
+      <h5>logo</h5>
+    </div>
+    <div *ngIf="sessionService.user">
+
+      <div class="left__navbar my__flex">
+        <ul class="navbar__ul my__flex">
+          <li>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                {{sessionService.user.username}}
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" [routerLink]="['/']">Home</a>
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">My Films</a>
+                <a class="dropdown-item" href="#">My Series</a>
+                <a class="dropdown-item" href="#">Watch List</a>
+                <a class="dropdown-item" href="#">Friends</a>
+                <hr>
+                <a class="dropdown-item" [routerLink]="['/']" (click)="sessionService.logout().subscribe()">Logout</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a [routerLink]="['/api/movies']">Movies</a>
+          </li>
+          <li>
+            <a [routerLink]="['/api/series']">Series</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="rigth__navbar" *ngIf="!sessionService.user">
+      <ul class="navbar__ul my__flex">
+        <li>
+          <a [routerLink]="['auth/login']">Login</a>
+        </li>
+        <li>
+          <a [routerLink]="['auth/signup']">Signup</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

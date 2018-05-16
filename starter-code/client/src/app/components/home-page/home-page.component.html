@@ -1,0 +1,10 @@
+<div class="my__container home__bg">
+  <div class="center__container">
+      <div class="inner__container my__flex">
+          <h1 *ngIf="!sessionService.user">ADIOS</h1>
+          <div class="home__test" *ngIf="sessionService.user">
+              <p>Whatever</p>
+          </div>
+        </div> 
+  </div>
+</div>

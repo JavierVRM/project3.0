@@ -87,6 +87,9 @@ app.use("/api/movies", movies);
 const series = require("./routes/series");
 app.use("/api/series", series);
 
+const review = require("./routes/review");
+app.use("/api/review", review);
+
 app.use(function(req, res) {
   res.sendfile(__dirname + "/public/index.html");
 });

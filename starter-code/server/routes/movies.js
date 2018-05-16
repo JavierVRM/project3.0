@@ -4,6 +4,8 @@ const router = express.Router();
 const mdb = process.env.API_KEY;
 const axios = require("axios");
 const stUrl = 'https://api.themoviedb.org/3/discover';
+const User = require('../models/User');
+const Review = require('../models/Review');
 
 const generes = {
     "Action": 28,
@@ -13,9 +15,7 @@ const generes = {
     "Crime": 80,
     "Documentary": 99,
     "Drama":18,
-    "Family": 10751,
     "Fantasy": 14,
-    "History": 36,
     "Horror": 27,
     "Music": 10402,
     "Mystery": 9648,
@@ -27,36 +27,57 @@ const generes = {
   }
 //   912071580 .-> pilar
 
+
+// DEFAULT MOVIES
 router.get("/", (req, res, next) => {
-   axios.get(` https://api.themoviedb.org/3/movie/now_playing?api_key=${mdb}&page=1`)
+  const playing = axios.get(` https://api.themoviedb.org/3/movie/now_playing?api_key=${mdb}&page=1`)
+  const popular = axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${mdb}&language=en-US&page=1`)
+  const rated = axios.get (`https://api.themoviedb.org/3/movie/top_rated?api_key=${mdb}&language=en-US&page=1`)
+  Promise.all([playing,popular,rated])
     .then(p => {
-        console.log(p.data.results);
-        return res.json(p.data.results);
+        return res.json([p[0].data.results,p[1].data.results,p[2].data.results])
     })
 });
 
-
-router.get("/genre/:genre", (req, res, next) => {
+// BY GENRE
+router.get("/genres/:genre", (req, res, next) => {
     let pM = req.params.genre
     let data = generes[pM]
-
-   axios.get(`${stUrl}/movie?api_key=${mdb}&language=en-US&sort_by=primary_release_date.desc&include_adult=false&include_video=false&page=1&with_genres=${data}`)
+    const genreOne = axios.get(`${stUrl}/movie?api_key=${mdb}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${data}`)
+    const genreTwo = axios.get(`${stUrl}/movie?api_key=${mdb}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=2&with_genres=${data}`)
+    const genreThree = axios.get(`${stUrl}/movie?api_key=${mdb}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=3&with_genres=${data}`)
+    const genreFour = axios.get(`${stUrl}/movie?api_key=${mdb}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=4&with_genres=${data}`)
+    const genreFive = axios.get(`${stUrl}/movie?api_key=${mdb}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=5&with_genres=${data}`)
+    Promise.all([genreOne,genreTwo,genreThree,genreFour,genreFive])
     .then(pM => {
-        console.log(pM.data.results);
-        return res.json(pM.data.results);   
+        return res.json([pM[0].data.results,pM[1].data.results,pM[2].data.results,pM[3].data.results,pM[4].data.results]) 
     })
 });
 
-
-// https://api.themoviedb.org/3/movie/300668?api_key=904b49c7f16b003d4169b1b312367c9b&language=en-US
-
+// BY ID
 router.get("/:id", (req, res, next) => {
     let idDetail = req.params.id
-    axios.get(`https://api.themoviedb.org/3/movie/${idDetail}?api_key=${mdb}&language=en-US`)
-      .then(p => res.json(p.data.results))
-      .catch(e => next(e));
-  });
-  
+    const movie = axios.get(`https://api.themoviedb.org/3/movie/${idDetail}?api_key=${mdb}&language=en-US`)
+    const director = axios.get(`https://api.themoviedb.org/3/movie/${idDetail}/credits?api_key=${mdb}`)
+    const similars = axios.get(`https://api.themoviedb.org/3/movie/${idDetail}/similar?api_key=${mdb}&language=en-US&page=1`)
+    Promise.all([movie,director,similars])
+        .then(p => { 
+            return res.json([p[0].data,p[1].data.crew,p[2].data.results])
+        })
+});
+
+// BY DIRECTOR 
+router.get("/director/:id", (req, res, next) => {
+    let id = req.params.id
+    const bio = axios.get (`https://api.themoviedb.org/3/person/${id}?api_key=${mdb}&language=en-US`);
+    const credits = axios.get(`https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${mdb}&language=en-US`);
+    Promise.all([bio,credits])
+    .then(p => {
+        console.log([p[0].data,p[1].data.crew])
+        return res.json([p[0].data,p[1].data.crew])  
+    })
+});
+
 // byGenre
 // router.get("/:genre", (req, res, next) => {
 //     let pM = req.params.genre
@@ -99,14 +120,6 @@ router.get("/:id", (req, res, next) => {
 //  });
 
 
-// SINGLE AXIOS => OK
 
-// router.get("/test", (req, res, next) => {
-//    axios.get(` https://api.themoviedb.org/3/movie/now_playing?api_key=${mdb}&page=1`)
-//     .then(p => {
-//         console.log(p.data.results);
-//         return res.json(p.data.results);
-//     })
-// });
 
 module.exports = router;

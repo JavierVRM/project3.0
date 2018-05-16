@@ -1,0 +1,53 @@
+<div class="my__header ">
+    <h3>BROWSE</h3>
+    <hr>
+  </div>
+  <div class="my__browse">
+    <ul class="ul__horizontal ">
+      <li>
+        <div class="my__flex">
+          <h3 class="no__margin__bottom">By Title</h3>
+          <form action="">
+            <input type="text">
+            <button>Lupa</button>
+          </form>
+        </div>
+      </li>
+
+      <li>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            By Genre
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Action']">Action</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Adventure']">Adventure</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Animation']">Animation</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Comedy']">Comedy</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Crime']">Crime</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Documentary']">Documentary</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Drama']">Drama</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Fantasy']">Fantasy</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Horror']">Horror</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Music']">Music</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Mystery']">Mystery</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Romance']">Romance</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Science Fiction']">Science Fiction</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Thriller']">Thriller</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/War']">War</a>
+            <a class="dropdown-item" [routerLink]="['/api/movies/genre/Western']">Western</a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="my__flex">
+          <h3 class="no__margin__bottom">By Year</h3>
+          <form action="" id="year-form">
+            <input type="text" class="year__input">
+            <button>Lupa</button>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>

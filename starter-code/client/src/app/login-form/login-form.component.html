@@ -1,0 +1,48 @@
+<div class="my__auth__container my__flex">
+  <div class="inner__auth">
+    <form>
+      <h2 *ngIf="isLogin"> Login </h2>
+      <h2 *ngIf="!isLogin"> Signup </h2>
+      <label> Username </label>
+      <input type="text" [(ngModel)]="username" name="username" />
+      <br>
+      <label> Password </label>
+      <input type="password" [(ngModel)]="password" name="password" />
+      <div *ngIf="!isLogin">
+          <label> Patata </label>
+          <input type="password" [(ngModel)]="patata" name="patata" />
+    
+      </div>
+      <div >
+        <button *ngIf="isLogin" (click)="login()"> login </button>
+        <button *ngIf="!isLogin" (click)="signup()"> signup </button>
+      </div>
+    </form>
+    <p class="error"> {{ error }} </p>
+  </div>
+</div>
+<!-- <form>
+  <h2> Login </h2>
+  <label> Username </label>
+  <input type="text" [(ngModel)]="username" name="username"/>
+  <br>
+  <label> Password </label>
+  <input type="password" [(ngModel)]="password" name="password"/>
+  <div >
+    <button (click)="login()"> LogIn </button> 
+  </div>
+</form>
+<p class="error"> {{ error }} </p>
+
+<form>
+  <h2> Signup </h2>
+  <label> Username </label>
+  <input type="text" [(ngModel)]="username" name="username"/>
+  <br>
+  <label> Password </label>
+  <input type="password" [(ngModel)]="password" name="password"/>
+  <div >
+    <button (click)="signup()"> SignUp </button>
+  </div>
+</form>
+<p class="error"> {{ error }} </p> -->

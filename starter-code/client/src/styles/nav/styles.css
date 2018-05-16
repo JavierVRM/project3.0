@@ -1,0 +1,25 @@
+.my__navbar {
+    width: 100%; 
+    height: 75px;
+    justify-content: space-between;
+    color: rgb(209, 209, 207);
+}
+.my__navbar a {
+    color: rgb(209, 209, 207);
+}
+.my__navbar a:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+.my__navbar a.dropdown-item:hover {
+    background: rgba(255,255,255,0.1);
+    color: #FFF;
+}
+
+.my__navbar img {
+    width: 50px;
+    opacity: 0.9;
+}
+.navbar__ul li {
+    margin-left: 20px;
+}
