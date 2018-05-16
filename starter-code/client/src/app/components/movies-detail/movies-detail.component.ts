@@ -3,6 +3,7 @@ import { SessionService } from '../../services/session.service';
 import { MovieService } from '../../services/movie.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-movies-detail',
@@ -21,8 +22,9 @@ export class MoviesDetailComponent implements OnInit {
     route.params.subscribe(params => {
         movieService.get(params.id).subscribe( movies => {
           this.movies = movies[0];
-          this.movies.director = movies[1];
-          this.movies.similars = movies [2];
+          // this.movies.director = movies[1];
+          this.movies.director = _.find(movies[1], {'department' : 'Directing', 'job' : 'Director'} );
+          this.movies.similars = movies[2];
           console.log(this.movies.director);
         });
     });

@@ -1,61 +1,62 @@
-<div class="home__bg min__height">
-    <div class="center__container my__flex__start detail__pusher">
-        <div class="detail__left">
-            <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movies.poster_path}}">
-        </div>
-        <div class="detail__rigth">
+<div *ngIf="movies">
+    <div class="home__bg min__height">
+        <div class="center__container my__flex__start detail__pusher">
+            <div class="detail__left">
+                <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movies.poster_path}}">
+            </div>
+            <div class="detail__rigth">
 
-            <h2>{{movies.original_title}}</h2>
+                <h2>{{movies.original_title}}</h2>
 
-            <div class="detail__rigth__item">
-                <ol>
-                    <li>
-                        <h6>Directed by:</h6>
-                    </li>
-                    <li>
-                        <a [routerLink]="['/api/movies/director',movies.director.id]">
-                            <h3>{{movies.director.name}}</h3>
-                        </a>
-                    </li>
-                </ol>
-            </div>
-            <div class="detail__rigth__item">
-                <ol>
-                    <li>
-                        <h6>Release date:</h6>
-                    </li>
-                    <li>
-                        <h5>{{movies.release_date}}</h5>
-                    </li>
-                </ol>
-            </div>
-            <div class="detail__rigth__item">
-                <ul class="list__block">
-                    <li *ngFor="let movie of movies.genres">
-                        <h6>{{movie.name}}</h6>
-                    </li>
-                </ul>
-            </div>
-            <div class="detail__rigth__item">
-                <p>{{movies.overview}}</p>
+                <div class="detail__rigth__item">
+                    <ol>
+                        <li>
+                            <h6>Directed by:</h6>
+                        </li>
+                        <li>
+                            <a *ngIf="movies.director" [routerLink]="['/api/movies/director',movies.director.id]">
+                                <h3>{{movies.director.name}}</h3>
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+                <div class="detail__rigth__item">
+                    <ol>
+                        <li>
+                            <h6>Release date:</h6>
+                        </li>
+                        <li>
+                            <h5>{{movies.release_date}}</h5>
+                        </li>
+                    </ol>
+                </div>
+                <div class="detail__rigth__item">
+                    <ul class="list__block">
+                        <li *ngFor="let movie of movies.genres">
+                            <h6>{{movie.name}}</h6>
+                        </li>
+                    </ul>
+                </div>
+                <div class="detail__rigth__item">
+                    <p>{{movies.overview}}</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="center__container__inner">
-        <div class="my__header ">
-            <h3>SIMILAR MOVIES</h3>
-            <hr>
-        </div>
-        <div class="movies__header my__flex similar__movies">
-            <div class="my__flex__between" *ngFor="let movie of movies.similars">
-                <a [routerLink]="['/api/movies',movie.id]">
-                    <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}">
-                </a>
+        <div class="center__container__inner">
+            <div class="my__header ">
+                <h3>SIMILAR MOVIES</h3>
+                <hr>
+            </div>
+            <div class="movies__header my__flex similar__movies">
+                <div class="my__flex__between" *ngFor="let movie of movies.similars">
+                    <a [routerLink]="['/api/movies',movie.id]">
+                        <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 
 <!-- <div>{{movies.similars[0].title}}</div>
     <a [routerLink]="['/api/movies',movies.similars[0].id]">

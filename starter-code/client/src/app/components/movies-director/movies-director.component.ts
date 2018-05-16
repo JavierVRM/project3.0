@@ -28,7 +28,7 @@ export class MoviesDirectorComponent implements OnInit {
           });
           this.byJob = byJob;
           this.bio = this.movies[0];
-          console.log(this.byJob);
+          console.log(movies);
         });
     });
   }

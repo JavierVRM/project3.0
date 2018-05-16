@@ -19,6 +19,7 @@ import { SeriesDetailComponent } from './components/series-detail/series-detail.
 import { GenresComponent } from './components/genres/genres.component';
 import { MoviesDirectorComponent } from './components/movies-director/movies-director.component';
 import { BrowseComponent } from './components/browse/browse.component';
+import { MyPipePipe } from './components/my-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { BrowseComponent } from './components/browse/browse.component';
     SeriesDetailComponent,
     GenresComponent,
     MoviesDirectorComponent,
-    BrowseComponent
+    BrowseComponent,
+    MyPipePipe
 ],
   imports: [
     BrowserModule,
