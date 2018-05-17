@@ -163,7 +163,7 @@ input[type="number"] {
     color: #292928;
 }
 .my__browse input.year__input {
-  width: 26%;
+  width: 21%;
 }
 .browse__button {
   border: 1px solid #fff;
@@ -228,11 +228,16 @@ input[type="number"] {
 .detail__rigth__item h6,p  {
   font-weight: lighter;
 }
+
 .detail__rigth__a {
   width:40px; 
-  background: #b7a85c;
-  border-radius: 50%;
+  border: 1px solid #b7a85c;
+  background: rgba(255,255,255,0.4);
+  border-radius: 5px;
   padding: 0.3rem;
+}
+.detail__rigth__a:hover {
+  background: #b7a85c;
 }
 .detail__rigth__a img {
   width: 100%;

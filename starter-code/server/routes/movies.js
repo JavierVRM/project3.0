@@ -57,6 +57,7 @@ router.get("/genres/:genre", (req, res, next) => {
 // BY ID
 router.get("/:id", (req, res, next) => {
     let idDetail = req.params.id
+    console.log('idDetail')
     const movie = axios.get(`https://api.themoviedb.org/3/movie/${idDetail}?api_key=${mdb}&language=en-US`)
     const director = axios.get(`https://api.themoviedb.org/3/movie/${idDetail}/credits?api_key=${mdb}`)
     const similars = axios.get(`https://api.themoviedb.org/3/movie/${idDetail}/similar?api_key=${mdb}&language=en-US&page=1`)
@@ -81,13 +82,26 @@ router.get("/director/:id", (req, res, next) => {
 
 // BY  NAME
 router.get("/title/:title", (req, res, next) => {
-    // funcion URIblablba de JS para tranformar a espacios en blanco
     let title = req.params.title;
     const titleOne = axios.get (`https://api.themoviedb.org/3/search/movie?api_key=${mdb}&language=en-US&query=${title}&page=1&include_adult=false`);
     const titleTwo = axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${mdb}&language=en-US&query=${title}&page=2&include_adult=false`);
     Promise.all([titleOne,titleTwo])
     .then(p => {
         return res.json([p[0].data.results,p[1].data.results])  
+    })
+});
+
+// BY  YEAR
+router.get("/year/:year", (req, res, next) => {
+    let year = req.params.year;
+    const yearOne = axios.get (`https://api.themoviedb.org/3/discover/movie?api_key=${mdb}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=${year}`);
+    const yearTwo = axios.get (`https://api.themoviedb.org/3/discover/movie?api_key=${mdb}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=2&primary_release_year=${year}`);
+    const yearThree = axios.get (`https://api.themoviedb.org/3/discover/movie?api_key=${mdb}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=3&primary_release_year=${year}`);
+    const yearFour = axios.get (`https://api.themoviedb.org/3/discover/movie?api_key=${mdb}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=4&primary_release_year=${year}`);
+    const yearFive = axios.get (`https://api.themoviedb.org/3/discover/movie?api_key=${mdb}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=5&primary_release_year=${year}`);
+    Promise.all([yearOne,yearTwo,yearThree,yearFour,yearFive])
+    .then(p => {
+        return res.json([p[0].data.results,p[1].data.results,p[2].data.results,p[3].data.results,p[4].data.results])  
     })
 });
 

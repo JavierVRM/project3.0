@@ -10,6 +10,8 @@ import { SeriesDetailComponent } from './components/series-detail/series-detail.
 import { GenresComponent } from './components/genres/genres.component';
 import { BrowseComponent } from './components/browse/browse.component';
 import { TitleComponent } from './components/title/title.component';
+import { YearComponent } from './components/year/year.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -19,8 +21,11 @@ export const routes: Routes = [
   { path: 'api/movies/:id', component: MoviesDetailComponent},
   { path: 'api/movies/director/:id', component: MoviesDirectorComponent},
   { path: 'api/movies/title/:title', component: TitleComponent},
+  { path: 'api/movies/year/:year', component: YearComponent},
   { path: 'api/series', component: SeriesComponent },
+  { path: 'api/profile', component: ProfileComponent},
   { path: 'api/series/genre/:genre', component: GenresComponent },
+  { path: 'api/series/:id', component: SeriesDetailComponent },
   { path: 'api/series/:id', component: SeriesDetailComponent },
   { path: '**', redirectTo: '' }
 ];

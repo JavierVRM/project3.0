@@ -1,3 +1,8 @@
 <p>
   profile works!
 </p>
+<div *ngIf="watchlist">
+  <div *ngFor="let movie of watchlist">
+    <p>{{movie.id}}</p>
+  </div>
+</div>

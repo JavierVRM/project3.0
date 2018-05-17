@@ -23,6 +23,10 @@ export class MovieService {
         return this.http.get(`${environment.BASEURL}/api/movies/title/${title}`)
         .map((res) => res.json());
     }
+    getYear(year) {
+        return this.http.get(`${environment.BASEURL}/api/movies/year/${year}`)
+        .map((res) => res.json());
+    }
     get(id) {
         return this.http.get(`${environment.BASEURL}/api/movies/${id}`)
         .map((res) => res.json());
@@ -33,4 +37,9 @@ export class MovieService {
     // getYear() {
 
     // }
+
+    addWatch(user, movie) {
+        return this.http.put(`${environment.BASEURL}/api/user/${user}/${movie}`, {})
+        .map((res) => res.json());
+    }
 }

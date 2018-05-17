@@ -12,7 +12,7 @@ constructor(
     private http: Http
 ) { }
     addWatch(id, idMovie) {
-        return this.http.get(`${environment.BASEURL}/api/user/${id}/${idMovie}`)
+        return this.http.put(`${environment.BASEURL}/api/user/${id}/${idMovie}`, {})
         .map((res) => res.json());
     }
 }

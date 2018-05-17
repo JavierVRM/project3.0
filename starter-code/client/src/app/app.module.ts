@@ -23,6 +23,7 @@ import { MyPipePipe } from './components/my-pipe.pipe';
 import { UserService } from './services/user.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TitleComponent } from './components/title/title.component';
+import { YearComponent } from './components/year/year.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,8 @@ import { TitleComponent } from './components/title/title.component';
     BrowseComponent,
     ProfileComponent,
     TitleComponent,
+    YearComponent,
+    ProfileComponent,
     MyPipePipe
 ],
   imports: [

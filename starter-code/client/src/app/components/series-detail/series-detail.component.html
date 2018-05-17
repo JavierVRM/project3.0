@@ -8,16 +8,23 @@
             <div *ngIf="series.created_by" class="detail__rigth__item ">
                 <h6>Created by: {{series.created_by[0].name}}</h6>
             </div>
+            <div  *ngIf="series.homepage" class="detail__rigth__item">
+                    <div class="detail__rigth__a my__flex">
+                         <a href="{{series.homepage}}"><img src="../../../assets/images/home.png" alt=""></a>
+                    </div>
+             </div>
             <div *ngIf="series.number_of_seasons" class="detail__rigth__item">
                 <h6>Number of seasons: {{series.number_of_seasons}}</h6>
             </div>
-            <div   *ngFor="let season of series.seasons" class="detail__rigth__item">
-                <ul class="list__inline__block">
-                    <li>{{season.name}}</li>
+            <div   class="detail__rigth__item">
+                <ul class="list__block">
+                    <li  *ngFor="let season of series.seasons">
+                        <H6>{{season.name}}</H6>
+                    </li>
                 </ul>
                     
             </div>
-            <div *ngIf="series.genre" class="detail__rigth__item genre__item">
+            <div  class="detail__rigth__item genre__item">
                 <ul class="list__block">
                     <li *ngFor="let serie of series.genres">
                         <h6>{{serie.name}}</h6>
@@ -27,12 +34,7 @@
             <div *ngIf="series.overview" class="detail__rigth__item">
                 <p>{{series.overview}}</p>
             </div>
-            <div  *ngIf="series.homepage" class="detail__rigth__item">
-                   <div class="detail__rigth__a my__flex">
-                        <a href="{{series.homepage}}"><img src="../../../assets/images/home.png" alt=""></a>
-                   </div>
-                   
-            </div>
+            
         </div>
     </div>
     <div class="center__container__inner">

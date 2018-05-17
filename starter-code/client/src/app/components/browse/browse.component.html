@@ -7,11 +7,8 @@
     <li>
       <div class="my__flex">
         <h3 class="no__margin__bottom">By Title</h3>
-
           <input type="text" [(ngModel)]="byName">
           <a [routerLink]="['/api/movies/title', byName]">Lupa</a>
-          <!-- <button (click)="getTitle()">Lupa</button> -->
-      
       </div>
     </li>
 
@@ -44,13 +41,9 @@
     <li>
       <div class="my__flex">
         <h3 class="no__margin__bottom">By Year</h3>
-        <!-- <form action="" id="year-form">
-          <input type="number" class="year__input" [(ngModel)]="byYear">
-        </form> -->
+        <input class="year__input"  type="text" [(ngModel)]="byYear">
+          <a [routerLink]="['/api/movies/year', byYear]">Lupa</a>
       </div>
     </li>
   </ul>
-  <!-- <div class="browse__button">
-      <button click()="">Lupa</button>
-  </div> -->
 </div>

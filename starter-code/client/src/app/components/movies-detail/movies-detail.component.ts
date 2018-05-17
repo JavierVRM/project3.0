@@ -31,4 +31,7 @@ export class MoviesDetailComponent implements OnInit {
   }
   ngOnInit() {
   }
+  addWatch() {
+    this.movieService.addWatch(this.sessionService.user._id, this.movies.id).subscribe();
+  }
 }
