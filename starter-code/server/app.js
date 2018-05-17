@@ -90,6 +90,9 @@ app.use("/api/series", series);
 const review = require("./routes/review");
 app.use("/api/review", review);
 
+const userRout = require("./routes/user");
+app.use("/api/user", userRout);
+
 app.use(function(req, res) {
   res.sendfile(__dirname + "/public/index.html");
 });

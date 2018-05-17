@@ -1,4 +1,3 @@
-
 <div class="home__bg min__height">
     <div class="center__container__inner my__flex__start detail__pusher">
         <div class="detail__left">
@@ -6,29 +5,47 @@
         </div>
         <div class="detail__rigth">
             <h2>{{series.original_name}}</h2>
-            <div class="detail__rigth__item">
-                    <ul class="list__block">
-                        <li *ngFor="let serie of series.genres">
-                            <h6>{{serie.name}}</h6>
-                        </li>
-                    </ul>
-                </div>
-            <div class="detail__rigth__item">
+            <div *ngIf="series.created_by" class="detail__rigth__item ">
+                <h6>Created by: {{series.created_by[0].name}}</h6>
+            </div>
+            <div *ngIf="series.number_of_seasons" class="detail__rigth__item">
+                <h6>Number of seasons: {{series.number_of_seasons}}</h6>
+            </div>
+            <div   *ngFor="let season of series.seasons" class="detail__rigth__item">
+                <ul class="list__inline__block">
+                    <li>{{season.name}}</li>
+                </ul>
+                    
+            </div>
+            <div *ngIf="series.genre" class="detail__rigth__item genre__item">
+                <ul class="list__block">
+                    <li *ngFor="let serie of series.genres">
+                        <h6>{{serie.name}}</h6>
+                    </li>
+                </ul>
+            </div>
+            <div *ngIf="series.overview" class="detail__rigth__item">
                 <p>{{series.overview}}</p>
+            </div>
+            <div  *ngIf="series.homepage" class="detail__rigth__item">
+                   <div class="detail__rigth__a my__flex">
+                        <a href="{{series.homepage}}"><img src="../../../assets/images/home.png" alt=""></a>
+                   </div>
+                   
             </div>
         </div>
     </div>
     <div class="center__container__inner">
-            <div class="my__header ">
-                <h3>SIMILAR TV SHOWS</h3>
-                <hr>
-            </div>
-            <div class="movies__header my__flex similar__movies">
-                <div class="my__flex__between" *ngFor="let serie of series.similars">
-                    <a [routerLink]="['/api/series',serie.id]">
-                        <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{serie.poster_path}}">
-                    </a>
-                </div>
+        <div class="my__header ">
+            <h3>SIMILAR TV SHOWS</h3>
+            <hr>
+        </div>
+        <div class="movies__header my__flex similar__movies">
+            <div class="my__flex__between" *ngFor="let serie of series.similars">
+                <a [routerLink]="['/api/series',serie.id]">
+                    <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{serie.poster_path}}">
+                </a>
             </div>
         </div>
+    </div>
 </div>

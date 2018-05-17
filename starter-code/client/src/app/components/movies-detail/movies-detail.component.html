@@ -1,13 +1,11 @@
-<div *ngIf="movies">
-    <div class="home__bg min__height">
+
+    <div class="home__bg min__height" *ngIf="movies">
         <div class="center__container my__flex__start detail__pusher">
             <div class="detail__left">
                 <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movies.poster_path}}">
             </div>
-            <div class="detail__rigth">
-
+            <div  class="detail__rigth">
                 <h2>{{movies.original_title}}</h2>
-
                 <div class="detail__rigth__item">
                     <ol>
                         <li>
@@ -20,7 +18,10 @@
                         </li>
                     </ol>
                 </div>
-                <div class="detail__rigth__item">
+                <div *ngIf="movies.runtime" class="detail__rigth__item">
+                        <h6 style="font-style: italic; font-size: 0.9rem">{{movies.runtime}}'</h6>
+                </div>
+                <div *ngIf="movies.release_date" class="detail__rigth__item">
                     <ol>
                         <li>
                             <h6>Release date:</h6>
@@ -30,19 +31,24 @@
                         </li>
                     </ol>
                 </div>
-                <div class="detail__rigth__item">
+                <div class="detail__rigth__item genre__item">
                     <ul class="list__block">
                         <li *ngFor="let movie of movies.genres">
-                            <h6>{{movie.name}}</h6>
+                            <h5>{{movie.name}}</h5>
                         </li>
                     </ul>
                 </div>
-                <div class="detail__rigth__item">
+                <div *ngIf="movies.overview" class="detail__rigth__item">
                     <p>{{movies.overview}}</p>
                 </div>
+                <!-- <div class="detail__rigth__item">
+                        
+                        <iframe width="854" height="480" src="https://www.youtube.com/embed/{{movie.video.key}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                 </div> -->
             </div>
         </div>
-        <div class="center__container__inner">
+        
+        <div *ngIf="movies.similars" class="center__container__inner">
             <div class="my__header ">
                 <h3>SIMILAR MOVIES</h3>
                 <hr>
@@ -56,7 +62,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 <!-- <div>{{movies.similars[0].title}}</div>
     <a [routerLink]="['/api/movies',movies.similars[0].id]">

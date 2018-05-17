@@ -1,21 +1,33 @@
-<div class="my__auth__container my__flex">
-  <div class="inner__auth">
-    <form>
-      <h2 *ngIf="isLogin"> Login </h2>
-      <h2 *ngIf="!isLogin"> Signup </h2>
-      <label> Username </label>
-      <input type="text" [(ngModel)]="username" name="username" />
-      <br>
-      <label> Password </label>
-      <input type="password" [(ngModel)]="password" name="password" />
-      <div *ngIf="!isLogin">
-          <label> Patata </label>
-          <input type="password" [(ngModel)]="patata" name="patata" />
+<div class=" my__flex home__bg min__height__auth">
+  <div class="inner__auth my__flex">
+    <form class="auth__item">
+      <div class="auth__title text__center auth__item">
+          <h2 *ngIf="isLogin"> LOG IN </h2>
+          <h2 *ngIf="!isLogin"> SIGN UP </h2>
+      </div>
+      <div class="auth__label__container auth__item">
+          <div class="label__hr auth__item"> <hr></div>
+          <div class="auth__label auth__item">
+              
+              <label></label>
+              <input type="text" [(ngModel)]="username" name="username" placeholder="Username" />
+             
+          </div>
+          <div class="label__hr auth__item"> <hr></div>
+          <div class="auth__label auth__item">
+              <label></label>
+              <input type="password" [(ngModel)]="password" name="password" placeholder="Password"/>
+              
+          </div>
+          <div class="label__hr auth__item"> <hr></div>
+      </div>
+      <div *ngIf="!isLogin" class="auth__item">
+         
     
       </div>
-      <div >
-        <button *ngIf="isLogin" (click)="login()"> login </button>
-        <button *ngIf="!isLogin" (click)="signup()"> signup </button>
+      <div class="auth__button text__center auth__item">
+        <button *ngIf="isLogin" (click)="login()"> Submit </button>
+        <button *ngIf="!isLogin" (click)="signup()"> Submit </button>
       </div>
     </form>
     <p class="error"> {{ error }} </p>

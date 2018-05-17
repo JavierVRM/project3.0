@@ -28,10 +28,14 @@ const generes = {
   }
 
 router.get("/", (req, res, next) => {
-   axios.get(`https://api.themoviedb.org/3/tv/airing_today?api_key=${mdb}&language=en-US&page=1`)
+   const airing = axios.get(`https://api.themoviedb.org/3/tv/airing_today?api_key=${mdb}&language=en-US&page=1`)
+   const popular = axios.get (`https://api.themoviedb.org/3/tv/popular?api_key=${mdb}&language=en-US&page=1`)
+   const rated = axios.get(`https://api.themoviedb.org/3/tv/top_rated?api_key=${mdb}&language=en-US&page=1`)
+   Promise.all([airing, popular, rated])
     .then(p => {
-        console.log(p.data.results);
-        return res.json(p.data.results);
+        console.log(p.data);
+        return res.json([p[0].data.results, p[1].data.results, p[2].data.results])
+    .catch(e => next(e));
     })
 });
 

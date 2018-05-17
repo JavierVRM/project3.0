@@ -11,13 +11,13 @@
 
 <div class="home__bg min__height">
   <div class="center__container__inner my__flex__start detail__pusher">
-      <div class="detail__left">
+      <div *ngIf="bio.profile_path" class="detail__left">
           <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{bio.profile_path}}">
       </div>
     <div class="detail__rigth">
 
         <h2>{{bio.name}}</h2>
-        <div class="detail__rigth__item">
+        <div *ngIf="bio.birthday" class="detail__rigth__item">
             <ol>
                 <li>
                     <h6>Birth Date:</h6>
@@ -28,7 +28,7 @@
             </ol>
         </div>
         
-        <div class="detail__rigth__item">
+        <div  *ngIf="bio.biography" class="detail__rigth__item">
             <p>{{bio.biography}}</p>
         </div>
     </div>

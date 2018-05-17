@@ -5,27 +5,27 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-browse',
-  templateUrl: './browse.component.html',
-  styleUrls: ['./browse.component.css']
+  selector: 'app-title',
+  templateUrl: './title.component.html',
+  styleUrls: ['./title.component.css']
 })
-export class BrowseComponent implements OnInit {
+export class TitleComponent implements OnInit {
   movies$: Observable<any>;
   pageOne: any;
   pageTwo: any;
   myTitle: any;
-  byName: string;
   constructor(
     public  movieService: MovieService,
     route: ActivatedRoute,
     public router: Router
   ) {
-    //   route.params.subscribe(title => {
-    //     movieService.getTitle(title.id).subscribe( movies => {
-    //       this.pageOne = movies[0];
-    //       this.pageTwo = movies[1];
-    //     });
-    // });
+      route.params.subscribe(params => {
+        movieService.getTitle(params.title).subscribe( movies => {
+          console.log(movies);
+          this.pageOne = movies[0];
+          this.pageTwo = movies[1];
+        });
+    });
   }
 
   ngOnInit() {

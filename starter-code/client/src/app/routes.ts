@@ -9,6 +9,7 @@ import { SeriesComponent } from './components/series/series.component';
 import { SeriesDetailComponent } from './components/series-detail/series-detail.component';
 import { GenresComponent } from './components/genres/genres.component';
 import { BrowseComponent } from './components/browse/browse.component';
+import { TitleComponent } from './components/title/title.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -17,6 +18,7 @@ export const routes: Routes = [
   { path: 'api/movies/genre/:genre', component: GenresComponent},
   { path: 'api/movies/:id', component: MoviesDetailComponent},
   { path: 'api/movies/director/:id', component: MoviesDirectorComponent},
+  { path: 'api/movies/title/:title', component: TitleComponent},
   { path: 'api/series', component: SeriesComponent },
   { path: 'api/series/genre/:genre', component: GenresComponent },
   { path: 'api/series/:id', component: SeriesDetailComponent },

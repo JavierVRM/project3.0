@@ -17,13 +17,14 @@ export class GenresComponent implements OnInit {
   pageThree: any;
   pageFour: any;
   pageFive: any;
+  myGenre: any;
   constructor(
     public  movieService: MovieService,
     route: ActivatedRoute,
     public router: Router
   ) {
     route.params.subscribe(genre => {
-      console.log(genre.genre);
+      this.myGenre = genre;
       movieService.getGenres(genre.genre).subscribe( movies => {
         this.pageOne = movies[0];
         this.pageTwo = movies[1];

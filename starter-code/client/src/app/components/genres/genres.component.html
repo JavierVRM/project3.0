@@ -1,8 +1,8 @@
 <div class="home__bg min__height">
   <div class="center__container__inner">
-      <app-browse></app-browse>
+    <app-browse></app-browse>
     <div class="my__header ">
-      <h3>GENRE</h3>
+      <h3>{{myGenre.genre }}</h3>
       <hr>
     </div>
     <div class="movies__header my__flex similar__movies">
@@ -19,7 +19,9 @@
       <div *ngFor="let movie of pageThree">
 
         <a [routerLink]="['/api/movies',movie.id]">
+
           <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}">
+
         </a>
       </div>
       <div *ngFor="let movie of pageFour">
@@ -35,5 +37,15 @@
         </a>
       </div>
     </div>
+    <!-- <div class="paginator">
+      <ul>
+        <a><li></li></a>
+        <a><li></li></a>
+        <a><li></li></a>
+        <a><li></li></a>
+        <a><li></li></a>
+      </ul>
+    </div> -->
   </div>
+
 </div>

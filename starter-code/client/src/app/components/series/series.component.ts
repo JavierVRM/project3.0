@@ -11,10 +11,15 @@ import { Observable } from 'rxjs/Observable';
 })
 export class SeriesComponent implements OnInit {
   series$: Observable<any>;
-  series: Array<any> = [];
+  airing: any;
+  popular: any;
+  rated: any;
   constructor(public  serieService: SerieService) {
-    this.series$ = serieService.getSeries();
-    serieService.getSeries().subscribe( series => this.series = series);
+    serieService.getSeries().subscribe( series => {
+      this.airing = series[0];
+      this.popular = series[1];
+      this.rated = series[2];
+    });
   }
   ngOnInit() {
   }

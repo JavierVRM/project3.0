@@ -1,8 +1,54 @@
-.my__auth__container {
-    width: 100%;
-    text-align: center;
-   
-}
+
 .inner__auth {
-    background: whitesmoke;
+    background: transparent;
+    padding: 1rem 2rem;
+    width: 400px;
+    border-radius: 3px;
+}
+.min__height__auth {
+    height: calc(100vh - (75px + 96px));
+}
+/* .label__hr {
+    padding: 0 1rem;
+} */
+.auth__label__container {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.auth__label {
+    padding: 0.5rem 1rem;
+}
+.auth__label input {
+    background: none;
+    border: none;
+    color: white;
+    width: 95%;
+    padding: 0.1rem 0.5rem;
+}
+
+.auth__button button {
+    font-weight: bold;
+    width: 100%;
+    color: #b7a85c;
+    background: transparent;
+   
+    padding: 0.3rem 0;
+    border-radius: 5px;
+    
+    border: 1px solid #b7a85c;
+}
+.auth__button button:hover {
+    background: #b7a85c;
+    color: #333;
+}
+.auth__title    {
+    color: #b7a85c;
+    font-weight: bold;
+}
+.auth__item {
+    width: 100%;
+}
+
+.auth__item h2 {
+    color: #b7a85c;
 }

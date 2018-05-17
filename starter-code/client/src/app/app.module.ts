@@ -20,6 +20,9 @@ import { GenresComponent } from './components/genres/genres.component';
 import { MoviesDirectorComponent } from './components/movies-director/movies-director.component';
 import { BrowseComponent } from './components/browse/browse.component';
 import { MyPipePipe } from './components/my-pipe.pipe';
+import { UserService } from './services/user.service';
+import { ProfileComponent } from './components/profile/profile.component';
+import { TitleComponent } from './components/title/title.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import { MyPipePipe } from './components/my-pipe.pipe';
     GenresComponent,
     MoviesDirectorComponent,
     BrowseComponent,
+    ProfileComponent,
+    TitleComponent,
     MyPipePipe
 ],
   imports: [
@@ -43,7 +48,7 @@ import { MyPipePipe } from './components/my-pipe.pipe';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [SessionService, MovieService, SerieService],
+  providers: [SessionService, MovieService, SerieService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

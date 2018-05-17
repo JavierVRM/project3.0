@@ -2,65 +2,86 @@
   <div class="center__container__inner">
     <div class="my__header ">
       <h3>BROWSE</h3>
-      <hr >
+      <hr>
     </div>
     <div class="my__browse">
-        <ul class="ul__horizontal">
-            <li>
-              <div class="my__flex">
-                  <h3 class="no__margin__bottom">By Title</h3>
-                  <form action="">
-                    <input type="text">
-                  </form>
-              </div>
-            </li>
-            <li>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true"
-                      aria-expanded="false">
-                      By Genre
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                      <a class="dropdown-item" [routerLink]="['/28']">Action</a>
-                      <a class="dropdown-item" [routerLink]="['/12']">Adventure</a>
-                      <a class="dropdown-item" [routerLink]="['/16']">Animation</a>
-                      <a class="dropdown-item" [routerLink]="['/35']">Comedy</a>
-                      <a class="dropdown-item" [routerLink]="['/80']">Crime</a>
-                      <a class="dropdown-item" [routerLink]="['/99']">Documentary</a>
-                      <a class="dropdown-item" [routerLink]="['/18']">Drama</a>
-                      <a class="dropdown-item" [routerLink]="['/14']">Fantasy</a>
-                      <a class="dropdown-item" [routerLink]="['/27']">Horror</a>
-                      <a class="dropdown-item" [routerLink]="['/10402']">Music</a>
-                      <a class="dropdown-item" [routerLink]="['/9648']">Mystery</a>
-                      <a class="dropdown-item" [routerLink]="['/10749']">Romance</a>
-                      <a class="dropdown-item" [routerLink]="['/878']">Science Fiction</a>
-                      <a class="dropdown-item" [routerLink]="['/53']">Thriller</a>
-                      <a class="dropdown-item" [routerLink]="['/10752']">War</a>
-                      <a class="dropdown-item" [routerLink]="['/37']">Western</a>
-                    </div>
-                  </div>
-            </li>
-            <li>
-                <div class="my__flex">
-                    <h3 class="no__margin__bottom">By Year</h3>
-                    <form action="">
-                      <input type="text" class="year__input">
-                    </form>
-                </div>
-            </li>
-          </ul>
+      <ul class="ul__horizontal">
+        <li>
+          <div class="my__flex">
+            <h3 class="no__margin__bottom">By Title</h3>
+            <form action="">
+              <input type="text">
+            </form>
+          </div>
+        </li>
+        <li>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              By Genre
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+              <a class="dropdown-item" [routerLink]="['/28']">Action</a>
+              <a class="dropdown-item" [routerLink]="['/12']">Adventure</a>
+              <a class="dropdown-item" [routerLink]="['/16']">Animation</a>
+              <a class="dropdown-item" [routerLink]="['/35']">Comedy</a>
+              <a class="dropdown-item" [routerLink]="['/80']">Crime</a>
+              <a class="dropdown-item" [routerLink]="['/99']">Documentary</a>
+              <a class="dropdown-item" [routerLink]="['/18']">Drama</a>
+              <a class="dropdown-item" [routerLink]="['/14']">Fantasy</a>
+              <a class="dropdown-item" [routerLink]="['/27']">Horror</a>
+              <a class="dropdown-item" [routerLink]="['/10402']">Music</a>
+              <a class="dropdown-item" [routerLink]="['/9648']">Mystery</a>
+              <a class="dropdown-item" [routerLink]="['/10749']">Romance</a>
+              <a class="dropdown-item" [routerLink]="['/878']">Science Fiction</a>
+              <a class="dropdown-item" [routerLink]="['/53']">Thriller</a>
+              <a class="dropdown-item" [routerLink]="['/10752']">War</a>
+              <a class="dropdown-item" [routerLink]="['/37']">Western</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="my__flex">
+            <h3 class="no__margin__bottom">By Year</h3>
+            <form action="">
+              <input type="text" class="year__input">
+            </form>
+          </div>
+        </li>
+      </ul>
     </div>
     <div class="my__header">
       <h3>AIRING TODAY</h3>
       <hr>
     </div>
     <div class="movies__header my__flex">
-      <div *ngFor="let serie of series" class="my__flex__between">
+      <div *ngFor="let serie of airing" class="my__flex__between">
         <a [routerLink]="['/api/series',serie.id]">
           <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{serie.poster_path}}">
         </a>
       </div>
     </div>
-
+    <div class="my__header">
+      <h3>POPULAR</h3>
+      <hr>
+    </div>
+    <div class="movies__header my__flex">
+      <div *ngFor="let serie of popular" class="my__flex__between">
+        <a [routerLink]="['/api/series',serie.id]">
+          <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{serie.poster_path}}">
+        </a>
+      </div>
+    </div>
+    <div class="my__header">
+        <h3>BEST RATED</h3>
+        <hr>
+      </div>
+      <div class="movies__header my__flex">
+        <div *ngFor="let serie of rated" class="my__flex__between">
+          <a [routerLink]="['/api/series',serie.id]">
+            <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{serie.poster_path}}">
+          </a>
+        </div>
+      </div>
   </div>
 </div>
