@@ -17,7 +17,7 @@
                     </li>
                 </ol>
             </div>
-           
+
 
             <div *ngIf="movies.runtime" class="detail__rigth__item">
                 <h6 style="font-style: italic; font-size: 0.9rem">{{movies.runtime}}'</h6>
@@ -33,26 +33,29 @@
                 </ol>
             </div>
             <div *ngIf="movies.release_date" class="detail__rigth__item">
-                    <button (click)="addWatch()">Test</button>
-                </div>
+                <button (click)="addWatch()">Test</button>
+            </div>
             <div *ngIf="movies.homepage" class="detail__rigth__item">
-                    <ol>
-                        <li>
-                            <div class="detail__rigth__a my__flex">
-                                <a href="{{movies.homepage}}">
-                                    <img src="../../../assets/images/home.png" alt="">
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="detail__rigth__a my__flex">
-                                <a href="https://www.imdb.com/title/{{movies.imdb_id}}/?ref_=nv_sr_2">
-                                    <img src="../../../assets/images/imdb_black.png" alt="">
-                                </a>
-                            </div>
-                        </li>
-                    </ol>
-                </div>
+                <ol>
+                    <li>
+                        <div class="detail__rigth__a my__flex">
+                            <a href="{{movies.homepage}}">
+                                <img src="../../../assets/images/home.png" alt="">
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="detail__rigth__a my__flex">
+                            <a href="https://www.imdb.com/title/{{movies.imdb_id}}/?ref_=nv_sr_2">
+                                <img src="../../../assets/images/imdb_black.png" alt="">
+                            </a>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <!-- <div class="detail__rigth__item">
+                <p>{{movies.revenue}}</p>
+            </div> -->
             <div class="detail__rigth__item genre__item">
                 <ul class="list__block">
                     <li *ngFor="let movie of movies.genres">

@@ -24,16 +24,16 @@
       </div>
     </div>
     <div class="my__header">
-        <h3>TOP RATED</h3>
-        <hr>
+      <h3>TOP RATED</h3>
+      <hr>
+    </div>
+    <div class="movies__header my__flex">
+      <div *ngFor="let movie of rated" class="my__flex__between">
+        <a [routerLink]="['/api/movies',movie.id]">
+          <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}">
+        </a>
       </div>
-      <div class="movies__header my__flex">
-        <div *ngFor="let movie of rated" class="my__flex__between">
-          <a [routerLink]="['/api/movies',movie.id]">
-            <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}">
-          </a>
-        </div>
-      </div>
+    </div>
   </div>
 
 

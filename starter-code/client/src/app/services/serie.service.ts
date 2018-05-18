@@ -19,4 +19,8 @@ export class SerieService {
         return this.http.get(`${environment.BASEURL}/api/series/${id}`)
         .map((res) => res.json());
     }
+    getSeason(id, ip) {
+        return this.http.get(`${environment.BASEURL}/api/series/${id}/${ip}`)
+        .map((res) => res.json());
+    }
 }

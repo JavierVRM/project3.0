@@ -1,10 +1,31 @@
 <div class="my__container home__bg">
-  <div class="center__container">
-      <div class="inner__container my__flex">
-          <h1 *ngIf="!sessionService.user">ADIOS</h1>
-          <div class="home__test" *ngIf="sessionService.user">
-              <p>Whatever</p>
-          </div>
-        </div> 
-  </div>
+    <div class="center__container">
+        <div class="inner__container__home my__flex">
+            <h1 *ngIf="!sessionService.user">Allmighty</h1>
+            <div class="home__test" *ngIf="sessionService.user">
+                <h1>Bienvenido</h1>
+                <h1>{{sessionService.user.username}}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="home__bg">
+    <div class="center__container">
+        <div class="inner__container__home my__flex__start tired">
+            <div class="home__cinema home__f">
+                <div class="home__img">
+                        <img src="../../../assets/images/cine.png" alt="">
+                </div>
+                <h2>Cinema</h2>
+                <h6>Because we all love the big sccreen experience</h6>
+            </div>
+            <div class="home__series home__f">
+                <div class="home__img">
+                        <img src="../../../assets/images/img.png" alt="">
+                </div>
+                <h2>Series</h2>
+                <h6>Because home confort is trending</h6>
+            </div>
+        </div>
+    </div>
 </div>

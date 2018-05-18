@@ -21,14 +21,14 @@ export class ProfileComponent implements OnInit {
     public movieService: MovieService,
     public userService: UserService
   ) {
-    this.sessionService.isLoggedIn().subscribe( u => this.user = u)
+    
   }
 
   ngOnInit() {
     this.lalal();
   }
   lalal() {
-    // this.sessionService.isLoggedIn().subscribe( u => this.user = u)
+    this.sessionService.isLoggedIn().subscribe( u => this.user = u)
     console.log(this.user);
     this.sessionService.user.watchlist.forEach(m => {
       console.log(m);

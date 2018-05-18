@@ -24,6 +24,7 @@ import { UserService } from './services/user.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { TitleComponent } from './components/title/title.component';
 import { YearComponent } from './components/year/year.component';
+import { SeasonComponent } from './components/season/season.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { YearComponent } from './components/year/year.component';
     TitleComponent,
     YearComponent,
     ProfileComponent,
+    SeasonComponent,
     MyPipePipe
 ],
   imports: [

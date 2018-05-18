@@ -16,14 +16,15 @@
             <div *ngIf="series.number_of_seasons" class="detail__rigth__item">
                 <h6>Number of seasons: {{series.number_of_seasons}}</h6>
             </div>
-            <div   class="detail__rigth__item">
+            <!-- <div   class="detail__rigth__item">
                 <ul class="list__block">
                     <li  *ngFor="let season of series.seasons">
+                        <a [routerLink]="['/api/series/{{series.id}}',season.season_number]"></a>  
                         <H6>{{season.name}}</H6>
                     </li>
                 </ul>
                     
-            </div>
+            </div> -->
             <div  class="detail__rigth__item genre__item">
                 <ul class="list__block">
                     <li *ngFor="let serie of series.genres">

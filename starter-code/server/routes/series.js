@@ -54,7 +54,6 @@ router.get("/genres/:genre", (req, res, next) => {
 router.get("/:id", (req, res, next) => {
     let idDetail = req.params.id  
     const serie = axios.get(`https://api.themoviedb.org/3/tv/${idDetail}?api_key=${mdb}&language=en-US`)
-  
     const similars = axios.get(`https://api.themoviedb.org/3/tv/${idDetail}/recommendations?api_key=${mdb}&language=en-US&page=1`)
     Promise.all([serie,similars])
       .then(p => { 
@@ -62,6 +61,17 @@ router.get("/:id", (req, res, next) => {
           return res.json([p[0].data, p[1].data.results])
       .catch(e => next(e));
       });
+  });
+
+  // BY SEASON 
+  router.get("/season/:id/:ip", (req, res, next) => {
+    let seasonDetail = req.params.ip
+    let serieDetail = req.params.id
+    axios.get(`https://api.themoviedb.org/3/tv/${serieDetail}/season/${seasonDetail}?api_key=${mdb}&language=en-US`)
+      .then(p => { 
+          console.log(p)
+          return res.json(p.data);
+      })
   });
 
 module.exports = router;

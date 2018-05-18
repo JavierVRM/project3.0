@@ -76,6 +76,10 @@ input[type="number"]::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
+i {
+  margin-left: -1.5rem;
+  color: #151515;
+}
 .center__container {
   width: 70%;
   margin: 0 auto;
@@ -115,8 +119,16 @@ input[type="number"] {
   height: 100vh;
   margin: 0 auto;
 }
+.inner__container__home {
+  width: 70%;
+  height: calc(100vh - 75px);
+  margin: 0 auto;
+}
+.inner__container__home h1 {
+  font-size: 5rem;
+}
 .home__test img {
-  width: 300px;
+  width: 100%;
   /* transform: rotate(90deg); */
 }
 .min__height {
@@ -163,7 +175,7 @@ input[type="number"] {
     color: #292928;
 }
 .my__browse input.year__input {
-  width: 21%;
+  width: 35%;
 }
 .browse__button {
   border: 1px solid #fff;
@@ -232,7 +244,7 @@ input[type="number"] {
 .detail__rigth__a {
   width:40px; 
   border: 1px solid #b7a85c;
-  background: rgba(255,255,255,0.4);
+  background: rgb(209, 209, 207);
   border-radius: 5px;
   padding: 0.3rem;
 }
@@ -258,4 +270,31 @@ input[type="number"] {
 }
 .list__inline__block li {
   display: inline-block;
+}
+.home__f {
+  width: 50%;
+  text-align: center;
+  padding-top: 10rem;
+
+}
+.home__img {
+  background: #b7a85c;
+  border-radius: 50px;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border: 1px solid #333;
+}
+.home__f:first-child {
+  margin-right: 10rem;
+}
+.home__f h2 {
+  margin-bottom: 1rem;
+}
+.home__f img {
+  height: 120px;
+  
+}
+.tired {
+  justify-content: space-between;
 }

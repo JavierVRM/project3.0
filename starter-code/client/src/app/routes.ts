@@ -6,6 +6,7 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { MoviesDetailComponent } from './components/movies-detail/movies-detail.component';
 import { MoviesDirectorComponent } from './components/movies-director/movies-director.component';
 import { SeriesComponent } from './components/series/series.component';
+import { SeasonComponent } from './components/season/season.component';
 import { SeriesDetailComponent } from './components/series-detail/series-detail.component';
 import { GenresComponent } from './components/genres/genres.component';
 import { BrowseComponent } from './components/browse/browse.component';
@@ -26,6 +27,6 @@ export const routes: Routes = [
   { path: 'api/profile', component: ProfileComponent},
   { path: 'api/series/genre/:genre', component: GenresComponent },
   { path: 'api/series/:id', component: SeriesDetailComponent },
-  { path: 'api/series/:id', component: SeriesDetailComponent },
+  { path: 'api/series/season/:id/:ip', component: SeasonComponent },
   { path: '**', redirectTo: '' }
 ];
