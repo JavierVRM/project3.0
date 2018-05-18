@@ -1,7 +1,10 @@
 <div class="home__bg min__height">
     <div class="center__container__inner my__flex__start detail__pusher">
-        <div class="detail__left">
+        <div class="detail__left" *ngIf="series.poster_path">
             <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{series.poster_path}}">
+        </div>
+        <div class="detail__left" *ngIf="!series.poster_path">
+            <small>Loading image</small>
         </div>
         <div class="detail__rigth">
             <h2>{{series.original_name}}</h2>
@@ -16,15 +19,15 @@
             <div *ngIf="series.number_of_seasons" class="detail__rigth__item">
                 <h6>Number of seasons: {{series.number_of_seasons}}</h6>
             </div>
-            <!-- <div   class="detail__rigth__item">
+            <div   class="detail__rigth__item">
                 <ul class="list__block">
                     <li  *ngFor="let season of series.seasons">
-                        <a [routerLink]="['/api/series/{{series.id}}',season.season_number]"></a>  
-                        <H6>{{season.name}}</H6>
+                        <a [routerLink]="['/api/series/', series.id, season.season_number]"><H6>{{season.name}}</H6></a>  
+                        
                     </li>
                 </ul>
                     
-            </div> -->
+            </div>
             <div  class="detail__rigth__item genre__item">
                 <ul class="list__block">
                     <li *ngFor="let serie of series.genres">

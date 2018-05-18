@@ -1,14 +1,14 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../../services/session.service';
-import { MovieService } from "../../services/movie.service";
-import { UserService } from "../../services/user.service";
-import { ActivatedRoute, Router } from "@angular/router";
-import { Observable } from "rxjs/Observable";
+import { MovieService } from '../../services/movie.service';
+import { UserService } from '../../services/user.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: "app-profile",
-  templateUrl: "./profile.component.html",
-  styleUrls: ["./profile.component.css"]
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
   movies$: Observable<any>;
@@ -21,14 +21,13 @@ export class ProfileComponent implements OnInit {
     public movieService: MovieService,
     public userService: UserService
   ) {
-    
   }
 
   ngOnInit() {
     this.lalal();
   }
   lalal() {
-    this.sessionService.isLoggedIn().subscribe( u => this.user = u)
+    this.sessionService.isLoggedIn().subscribe( u => this.user = u);
     console.log(this.user);
     this.sessionService.user.watchlist.forEach(m => {
       console.log(m);

@@ -27,6 +27,6 @@ export const routes: Routes = [
   { path: 'api/profile', component: ProfileComponent},
   { path: 'api/series/genre/:genre', component: GenresComponent },
   { path: 'api/series/:id', component: SeriesDetailComponent },
-  { path: 'api/series/season/:id/:ip', component: SeasonComponent },
+  { path: 'api/series/:id/:ip', component: SeasonComponent },
   { path: '**', redirectTo: '' }
 ];

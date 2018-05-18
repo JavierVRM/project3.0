@@ -19,7 +19,8 @@ export class SeasonComponent implements OnInit {
     public sessionService: SessionService
   ) {
     route.params.subscribe(params => {
-      serieService.getSeason(params.id, params.id).subscribe(series => {
+      serieService.getSeason(params.id, params.ip).subscribe(series => {
+        console.log(series);
         this.series = series;
         console.log(this.series);
       });

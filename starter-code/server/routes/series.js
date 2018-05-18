@@ -64,9 +64,9 @@ router.get("/:id", (req, res, next) => {
   });
 
   // BY SEASON 
-  router.get("/season/:id/:ip", (req, res, next) => {
-    let seasonDetail = req.params.ip
+  router.get("/:id/:ip", (req, res, next) => {
     let serieDetail = req.params.id
+    let seasonDetail = req.params.ip
     axios.get(`https://api.themoviedb.org/3/tv/${serieDetail}/season/${seasonDetail}?api_key=${mdb}&language=en-US`)
       .then(p => { 
           console.log(p)

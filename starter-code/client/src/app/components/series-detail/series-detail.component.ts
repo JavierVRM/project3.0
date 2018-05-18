@@ -20,6 +20,7 @@ export class SeriesDetailComponent implements OnInit {
   ) {
     route.params.subscribe(params => {
       serieService.get(params.id).subscribe(series => {
+        console.log(series);
         this.series = series[0];
         this.series.similars = series[1];
         console.log(this.series);

@@ -1,3 +1,29 @@
-<p>
+<!-- <p>
   season works!
+  {{series.overview}}
 </p>
+<div class="series" *ngFor="let serie of series.episodes">
+  <p>{{serie.episode_number}}</p>
+</div> -->
+<div class="home__bg min__height">
+  <div class="center__container__inner">
+    <div class="my__header">
+      <h2 style="margin-bottom: 1rem ">{{series.name}}</h2>
+      <h5>{{series.overview}}</h5>
+    </div>
+    
+    <div *ngFor="let serie of series.episodes">
+        <div class="my__header">
+            <h3>Episode {{serie.episode_number}}: {{serie.name}}</h3>
+            <hr>
+          </div>
+          <div class="movies__header my__flex__start" >
+            <div class="detail__left">
+              <img style="width: 250px" src="https://image.tmdb.org/t/p/w227_and_h127_bestv2/{{serie.still_path}}">
+            </div>
+            <div class="detail__right"> <p>{{serie.overview}}</p></div>
+          </div>
+    </div>
+    
+  </div>
+</div>
